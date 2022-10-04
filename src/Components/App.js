@@ -27,6 +27,8 @@ function App() {
     .then(data => {
       //sets the tokens in state
       setToken(data.access_token)
+      // console.log(data)
+      // console.log(token)
     })
   }, [])
   
@@ -35,7 +37,7 @@ function App() {
     fetch(`https://api.spotify.com/v1/browse/categories/`, {
       method: "GET",
       headers: {
-        'Authorization' : 'Bearer ' + token,
+        'Authorization' : 'Bearer ' + token ,
         'Content-Type' : 'application/json'
       }
     })
