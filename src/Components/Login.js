@@ -1,41 +1,33 @@
 import React, {useEffect, useRef, useState} from "react";
 
-function Login({clientID, clientSecret}) {
-    const [token, setToken] = useState("")
-    const apiFetchedRef = useRef(false);
+
+
+function Login({token, handleSubmit}) {
+    const usernameTag = "Username: "
+    const passwordTag = "Password: "
+
+
+
+    //onSubmit form should redirect to home page
+    //Home page contains profile info:
+            //username:
+            //userAvatar:
+            //show users: Favorite Song List
+
     
-  
-    const fetchAPIToken = () => {
-      fetch("https://accounts.spotify.com/api/token", {
-        method: 'POST',
-        headers: {
-          'Authorization': 'Basic ' + btoa(clientID + ':' + clientSecret),
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: 'grant_type=client_credentials'
-      })
-        .then(res => res.json())
-        .then(data => {
-          //sets the tokens in state
-          console.log(data)
-          setToken(data.access_token)
-        });
-    }
-
-    useEffect(() => {
-        if (apiFetchedRef.current) return;
-        apiFetchedRef.current = true;
-        fetchAPIToken();
-      }, [])
-
     return (
         <div>
-            <h1>This is the login Page</h1>
-            <form id="loginForm">
-                <p>
-                    Username: 
+            <h1>This is the login Page with {token}</h1>
+            <form id="loginForm" onSubmit={handleSubmit}>
+                <p> 
+                    {usernameTag}
                     <input placeholder="Username" name="username" />
                 </p>
+                <p>
+                    {passwordTag}
+                    <input placeholder="Password" name="password" />
+                </p>
+                <input type="submit" value="Log In"/>
             </form>
         </div>
     )
