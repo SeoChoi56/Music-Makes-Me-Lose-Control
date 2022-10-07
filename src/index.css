@@ -12,6 +12,19 @@ code {
     monospace;
 }
 
-.hidden {
-  
+nav {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.navOption {
+    padding: 10px;
+    flex-grow: 1;
+  }
+
+#homePage {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
 }

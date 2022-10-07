@@ -19,10 +19,11 @@ function Login({handleSubmit}) {
     
     return (
         <div>
-            <form id="loginForm" 
-                onSubmit={(event) => {
-                    handleSubmit(event)
-                    navigate("/home")}}>
+            <form id="loginForm" onSubmit={(event) => {
+                                                        handleSubmit(event)
+                                                        navigate("/home")}
+                                            }
+            >
                 <p> 
                     {usernameTag}
                     <input placeholder="Username" name="username" />
@@ -31,7 +32,7 @@ function Login({handleSubmit}) {
                     {passwordTag}
                     <input placeholder="Password" name="password" />
                 </p>
-                <button type="submit" text="Log In"> Log In </button>
+                <button type="submit"> Log In </button>
             </form>
         </div>
     )

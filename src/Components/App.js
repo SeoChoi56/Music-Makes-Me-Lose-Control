@@ -2,7 +2,6 @@ import logo from '../logo.svg';
 import React, {useState, useEffect, useRef} from 'react';
 import "../App.css"
 import Login from './Login';
-import NavBar from './NavBar';
 import Homepage from './Homepage';
 import ProfileSettings from './ProfileSettings';
 import Search from './Search';
@@ -26,9 +25,8 @@ function App() {
   const [playlist, setPlaylist] = useState({selectedPlaylist: '', listofPlaylistFromAPI: []})
   const [tracks, setTracks] = useState({selectedTrack: '', listofTracksFromAPI: []})
   const [trackDetail, setTrackDetail] = useState(null)
-  const [users, setUser] = useState({username: '', password: ''})
-  
-
+  const [users, setUserList] = useState([])
+  const [user, setUser] = useState({username: '', password: '', artist: '', avatarURL: '', genre: 'genre', playlist: []})
   
   
 
@@ -42,7 +40,6 @@ function App() {
       method: 'POST'
     })
     .then(res => {
-      console.log(res.data.access_token)
       setToken(res.data.access_token)
 
       axios('https://api.spotify.com/v1/browse/categories?locale=sv_US', {
@@ -74,7 +71,6 @@ function App() {
       }
     })
     .then(resPlaylist => {
-      console.log(resPlaylist)
       setPlaylist({
         selectedPlaylist: playlist.selectedPlaylist,
         listofPlaylistFromAPI: resPlaylist.data.playlists.items
@@ -118,19 +114,19 @@ function App() {
     })
     .then(res => res.json())
     .then(data => {
-      setUser(data)
+      setUserList(data)
     })
   }, [])
+
 
   function userExist(event) {
     event.preventDefault()
     if((users.filter(user => {
       if(user.username === event.target.username.value){
-        console.log(event.target.username.value)
-        console.log(user.username)
+
         if(user.password === event.target.password.value){
-          console.log(event.target.password.value)
-          console.log(user.password)
+
+          setUser(user)
           return true
         }
         else {
@@ -140,31 +136,30 @@ function App() {
       return false
     }))){
       console.log("I've got the user set")
-      console.log(isLogged)
       setLogIn(!isLogged)
     }
   }
 
-  return (
-    // <div className="App">
-    //   {true ?  <Homepage /> : <Search genreOptions={genres.listOfGenresFromAPI} selectedGenre={genres.selectedGenre} changedGenre={genreChanged} playlistOptions={playlist.listofPlaylistFromAPI} selectedPlaylist={playlist.selectedPlaylist} playlistChanged={playlistChanged} listBoxClicked={listboxClicked} listBoxitems={tracks.listofTracksFromAPI} clickAPICall={callAPIPlaylist} />}
-    // </div>
 
+
+
+  return (
     <Router>
       {isLogged ? (
         <nav>
-          <Link to="/home" className="hidden">Home</Link>
-          <Link to="/search" className="hidden">Search</Link>
-          <Link to="/profile" className="hidden">Settings</Link>
+          <Link to="/home" className="navOption">Home</Link>
+          <Link to="/search" className="navOption">Search</Link>
+          <Link to="/profile" className="navOption">Settings</Link>
+          <Link to="/addsong" className="navOption">Add a Song</Link>
         </nav>) : <React.Fragment></React.Fragment>}
 
       {isLogged ? (
         <Routes>
-          <Route path='/home' element={<Homepage />} />
-          <Route path='/search' element={<Search genreOptions={genres.listOfGenresFromAPI} selectedGenre={genres.selectedGenre} changedGenre={genreChanged} playlistOptions={playlist.listofPlaylistFromAPI} selectedPlaylist={playlist.selectedPlaylist} playlistChanged={playlistChanged} listBoxClicked={listboxClicked} listBoxitems={tracks.listofTracksFromAPI} clickAPICall={callAPIPlaylist} />} />
-          <Route path='/profile' element={<ProfileSettings />} />
-          <Route path='/addsong' element={<AddSong />} />
-          <Route path='*' element={<ErrorPage />} />
+          <Route path='/home' element={<Homepage userDetail={user} setProfile={setUser} />} />
+          <Route path='/search' element={<Search genreOptions={genres.listOfGenresFromAPI} selectedGenre={genres.selectedGenre} changedGenre={genreChanged} playlistOptions={playlist.listofPlaylistFromAPI} selectedPlaylist={playlist.selectedPlaylist} playlistChanged={playlistChanged} listBoxClicked={listboxClicked} listBoxitems={tracks.listofTracksFromAPI} clickAPICall={callAPIPlaylist} trackDetail={trackDetail} userDetail={user} setProfile={setUser}/>} />
+          <Route path='/profile' element={<ProfileSettings userDetail={user} setProfile={setUser}/>} />
+          <Route path='/addsong' element={<AddSong userDetail={user} setProfile={setUser}/>} />
+          <Route path='*' element={<ErrorPage userDetail={user} setProfile={setUser}/>} />
         </Routes>)
         : (<Routes>
             <Route path="/" element={<Login handleSubmit={userExist} />} />

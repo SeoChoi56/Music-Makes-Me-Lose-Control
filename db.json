@@ -1,8 +1,47 @@
 {
-  "users":[
+  "users": [
     {
+      "id": "SeoChoi-1",
       "username": "SeoChoi",
-      "password": "Phase-2-Project"
+      "password": "Phase-2-Project",
+      "avatarURL": "https://i.ytimg.com/vi/kF3kZuj1Qeo/hqdefault.jpg",
+      "genre": "pop",
+      "artist": "Paramore",
+      "playlist": [
+        {
+          "id": 0,
+          "title": "Nevereverland",
+          "artist": "nano",
+          "albumCover": "https://i.ytimg.com/vi/tEE0P3zfEig/maxresdefault.jpg"
+        },
+        {
+          "id": 1,
+          "title": "Misery Business",
+          "artist": "Paramore",
+          "albumCover": "https://th.bing.com/th/id/R.f9a363cc968e85317f657ce4a5dc18a4?rik=%2fI8m1SkRY2GF5Q&pid=ImgRaw&r=0"
+        },
+        {
+          "id": 2,
+          "title": "Nothing Hurts Like Goodbye (with Kiiara)",
+          "artist": "SLANDER",
+          "albumCover": "https://i.scdn.co/image/ab67616d0000b2736c6be7c514b7c795d0f3896b"
+        },
+        {
+          "title": "All the Small Things",
+          "artist": "Blink-182",
+          "albumCover": "https://th.bing.com/th/id/OIP.rK36Ny3Yl-fqm55izj-D7QHaHa?w=204&h=204&c=7&r=0&o=5&pid=1.7",
+          "id": 3
+        }
+      ]
+    },
+    {
+      "id": "SeoChoi2-1",
+      "username": "SeoChoi2",
+      "password": "Phase-2-Project",
+      "avatarURL": "https://i.ytimg.com/vi/Kt9XsucJIek/maxresdefault.jpg",
+      "genre": "rock2",
+      "artist": "nano2",
+      "playlist": []
     }
   ]
 }
