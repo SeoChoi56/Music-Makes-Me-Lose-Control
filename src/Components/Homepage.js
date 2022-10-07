@@ -12,11 +12,9 @@ function Homepage({userDetail, setProfile }){
         const playlistFirst = storePlaylist.slice(0, parseInt(indexToDelete));
         const playlistSecond = storePlaylist.slice((parseInt(indexToDelete)+1), storePlaylist.length)
         playlistSecond.map(item => {
-                                    console.log(item)
                                     item["id"] = parseInt(item.id) - 1
                                     })
         const appendPlaylist = [ ...playlistFirst, ...playlistSecond]
-        console.log(appendPlaylist)
         
         fetch(`http://localhost:3001/users/${userDetail.id}`, {
             method: "PATCH",
@@ -27,12 +25,12 @@ function Homepage({userDetail, setProfile }){
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+
             setProfile(data)})
     }
 
     const favoritesList = userDetail.playlist.map((song) => {
-        console.log(song)
+
         return (
             <div key={song.id} id={song.id}>{song.title} by {song.artist + " "} 
             <img className="albumCovers" src={song.albumCover} />

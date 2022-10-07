@@ -1,18 +1,3 @@
-
-
-
-  // useEffect(() => {
-  //   fetch(`https://api.spotify.com/v1/recommendations/available-genre-seeds`, {
-  //     method: "GET",
-  //     headers: {
-  //       'Authorization': 'Bearer ' + token,
-  //       'Content-Type': 'application/json'
-  //     }
-  //   })
-  //     .then(res => res.json())
-  //     .then(data => console.log(data));
-  // }, [])
-
   import React, {useState, useEffect, useRef}from "react";
   import ListTracksFromAPI from "./ListTracksFromAPI";
   import SongDetail from "./SongDetail"
@@ -49,7 +34,6 @@ function Search({genreOptions, selectedGenre, changedGenre, playlistOptions, sel
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
             setProfile(data)})
     }
 

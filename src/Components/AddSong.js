@@ -4,12 +4,10 @@ function AddSong({userDetail, setProfile }){
 
     function handleAddSong(event) {
         event.preventDefault();
-        console.log(event.target.trackName.value)
         const songToAdd = {
                             title: event.target.trackName.value, 
                             artist: event.target.trackArtist.value, 
                             albumCover: event.target.albumIMG.value}
-        console.log(userDetail)
         userDetail.playlist.push({...songToAdd, id: userDetail.playlist.length})
         fetch(`http://localhost:3001/users/${userDetail.id}`, {
             method: "PATCH",
@@ -20,7 +18,6 @@ function AddSong({userDetail, setProfile }){
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
             setProfile(data)})
         document.getElementById("addsong").reset();
     }

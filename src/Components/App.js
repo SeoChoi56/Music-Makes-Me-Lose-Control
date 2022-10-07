@@ -125,7 +125,6 @@ function App() {
     users.filter(user => {
       if (user.username === event.target.username.value) {
         if (user.password === event.target.password.value) {
-          console.log("I got to password good")
           setUser(user)
           setLogIn(!isLogged)
           logged = true;
