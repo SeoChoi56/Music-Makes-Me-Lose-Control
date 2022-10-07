@@ -27,10 +27,16 @@
           "albumCover": "https://i.scdn.co/image/ab67616d0000b2736c6be7c514b7c795d0f3896b"
         },
         {
-          "title": "All the Small Things",
+          "id": 3,
+          "title": "Pa' Que Retozen",
+          "artist": "Tego Calderón",
+          "albumCover": "https://i.scdn.co/image/ab67616d0000b27372b621a4c23f797307d35f11"
+        },
+        {
+          "title": "Seo Choi",
           "artist": "Blink-182",
           "albumCover": "https://th.bing.com/th/id/OIP.rK36Ny3Yl-fqm55izj-D7QHaHa?w=204&h=204&c=7&r=0&o=5&pid=1.7",
-          "id": 3
+          "id": 4
         }
       ]
     },

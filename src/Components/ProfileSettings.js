@@ -26,15 +26,6 @@ function ProfileSettings({userDetail, setProfile}) {
                 <input type="text" placeholder="genre" name="genre"/>
                 <p>Favorite Artist?</p>
                 <input type="text" placeholder="artist" name="artist" />
-                <p>How many songs to list on playlist</p>
-                <select>
-                    <option value="5">05</option>
-                    <option value="10">10</option>
-                    <option value="15">15</option>
-                    <option value="20">20</option>
-                    <option value="25">25</option>
-                    <option value="50">50</option>
-                </select>
                 <input type="submit" />
             </form>
         </div>

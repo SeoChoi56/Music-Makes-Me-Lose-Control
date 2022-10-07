@@ -32,8 +32,10 @@ function Homepage({userDetail, setProfile }){
     }
 
     const favoritesList = userDetail.playlist.map((song) => {
+        console.log(song)
         return (
             <div key={song.id} id={song.id}>{song.title} by {song.artist + " "} 
+            <img className="albumCovers" src={song.albumCover} />
                 <button onClick={handleDeleteSong}> Delete</button>
             </div>)
     })
