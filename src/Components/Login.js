@@ -1,10 +1,12 @@
 import React, {useEffect, useRef, useState} from "react";
+import { BrowserRouter as Router, useNavigate, Routes, Route, Link} from 'react-router-dom'
 
 
 
-function Login({token, handleSubmit}) {
+function Login({handleSubmit}) {
     const usernameTag = "Username: "
     const passwordTag = "Password: "
+    let navigate = useNavigate();
 
 
 
@@ -17,8 +19,10 @@ function Login({token, handleSubmit}) {
     
     return (
         <div>
-            <h1>This is the login Page with {token}</h1>
-            <form id="loginForm" onSubmit={handleSubmit}>
+            <form id="loginForm" 
+                onSubmit={(event) => {
+                    handleSubmit(event)
+                    navigate("/home")}}>
                 <p> 
                     {usernameTag}
                     <input placeholder="Username" name="username" />
@@ -27,7 +31,7 @@ function Login({token, handleSubmit}) {
                     {passwordTag}
                     <input placeholder="Password" name="password" />
                 </p>
-                <input type="submit" value="Log In"/>
+                <button type="submit" text="Log In"> Log In </button>
             </form>
         </div>
     )

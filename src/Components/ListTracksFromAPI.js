@@ -1,7 +1,6 @@
 import React from "react";
 
 function ListTracksFromAPI({items, click}) {
-    
     return (
         <div> 
             {

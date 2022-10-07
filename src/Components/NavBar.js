@@ -1,7 +1,7 @@
 import React from "react";
 import ProfileSettings from "./ProfileSettings";
 
-function NavBar({handleFavorites, handleHome, handleProfile, handleSearch}) {
+function NavBar({ handleHome, handleProfile, handleSearch}) {
 
     return (
         <nav>

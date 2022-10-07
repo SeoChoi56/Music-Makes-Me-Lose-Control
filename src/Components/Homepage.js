@@ -1,11 +1,15 @@
 import React from "react";
 import NavBar from "./NavBar";
+import {useNavigate} from "react-router-dom"
 
 function Homepage({token, handleHome, handleProfile, handleSearch}){
 
+
+
+
     return (
         <div>
-            <NavBar  handleHome={handleHome} handleProfile={handleProfile} handleSearch={handleSearch}/>
+            <NavBar  handleHome={()=>{}} handleProfile={handleProfile} handleSearch={()=>{}}/>
             <span>
                 This is User Profile: {token}
             </span>
