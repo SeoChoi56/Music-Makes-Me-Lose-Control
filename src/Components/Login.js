@@ -3,12 +3,10 @@ import { BrowserRouter as Router, useNavigate, Routes, Route, Link} from 'react-
 
 
 
-function Login({handleSubmit}) {
+function Login({handleSubmit, logged}) {
     const usernameTag = "Username: "
     const passwordTag = "Password: "
     let navigate = useNavigate();
-
-
 
     //onSubmit form should redirect to home page
     //Home page contains profile info:
@@ -20,9 +18,8 @@ function Login({handleSubmit}) {
     return (
         <div>
             <form id="loginForm" onSubmit={(event) => {
-                                                        handleSubmit(event)
-                                                        navigate("/home")}
-                                            }
+                                                        {handleSubmit(event) ? navigate("/home") : navigate("/")}
+                                                      }}
             >
                 <p> 
                     {usernameTag}
@@ -30,7 +27,7 @@ function Login({handleSubmit}) {
                 </p>
                 <p>
                     {passwordTag}
-                    <input placeholder="Password" name="password" />
+                    <input id="loginPass" placeholder="Password" name="password" />
                 </p>
                 <button type="submit"> Log In </button>
             </form>

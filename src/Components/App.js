@@ -27,7 +27,7 @@ function App() {
   const [trackDetail, setTrackDetail] = useState(null)
   const [users, setUserList] = useState([])
   const [user, setUser] = useState({username: '', password: '', artist: '', avatarURL: '', genre: 'genre', playlist: []})
-  
+
   
 
   useEffect(() => {
@@ -121,23 +121,22 @@ function App() {
 
   function userExist(event) {
     event.preventDefault()
-    if((users.filter(user => {
-      if(user.username === event.target.username.value){
-
-        if(user.password === event.target.password.value){
-
+    let logged = false
+    users.filter(user => {
+      if (user.username === event.target.username.value) {
+        if (user.password === event.target.password.value) {
+          console.log("I got to password good")
           setUser(user)
-          return true
+          setLogIn(!isLogged)
+          logged = true;
         }
         else {
-          return false
+          alert("Wrong Password! Please Try Again")
+          document.getElementById("loginForm").reset();
         }
       }
-      return false
-    }))){
-      console.log("I've got the user set")
-      setLogIn(!isLogged)
-    }
+    })
+    return logged
   }
 
 
@@ -155,14 +154,14 @@ function App() {
 
       {isLogged ? (
         <Routes>
+          <Route path='/' element={<Login handleSubmit={userExist} />} />
           <Route path='/home' element={<Homepage userDetail={user} setProfile={setUser} />} />
           <Route path='/search' element={<Search genreOptions={genres.listOfGenresFromAPI} selectedGenre={genres.selectedGenre} changedGenre={genreChanged} playlistOptions={playlist.listofPlaylistFromAPI} selectedPlaylist={playlist.selectedPlaylist} playlistChanged={playlistChanged} listBoxClicked={listboxClicked} listBoxitems={tracks.listofTracksFromAPI} clickAPICall={callAPIPlaylist} trackDetail={trackDetail} userDetail={user} setProfile={setUser}/>} />
           <Route path='/profile' element={<ProfileSettings userDetail={user} setProfile={setUser}/>} />
           <Route path='/addsong' element={<AddSong userDetail={user} setProfile={setUser}/>} />
-          <Route path='*' element={<ErrorPage userDetail={user} setProfile={setUser}/>} />
         </Routes>)
         : (<Routes>
-            <Route path="/" element={<Login handleSubmit={userExist} />} />
+            <Route path='/' element={<Login handleSubmit={userExist} />} />
           </Routes> )}
     </Router>
   );
