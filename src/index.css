@@ -27,6 +27,7 @@ nav {
   text-align: center;
   display: flex;
   flex-direction: row;
+  
 }
 
 .albumCovers {
@@ -37,7 +38,10 @@ nav {
 #loginPage {
   width: 100vw;
   height: 100vh;
-  background-color: #6CC6EC;
+  background-image: url("https://waterbearlearning.com/wp-content/uploads/2019/10/water_bear_learning_video_music3.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   border-style: dashed;
 }
 
@@ -51,12 +55,22 @@ nav {
   transform: translate(-50%, -50%);
   border-style: dotted;
   padding: 50px;
-  background-color: blueviolet;
+  background-image: url("https://cdn.xxl.thumbs.canstockphoto.com/blue-music-background-with-notes-vector-clip-art_csp6618681.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .loginCred {
   border-style: solid;
 }
 
-#loginID, #loginPass {
+/* #loginID, #loginPass { */
+/* } */
+
+.userPlaylistCard{
+  width: 200px;
+  height: 200px;
+  flex-direction: row;
 }
+

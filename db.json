@@ -4,9 +4,9 @@
       "id": "SeoChoi-1",
       "username": "SeoChoi",
       "password": "Phase-2-Project",
-      "avatarURL": "https://i.ytimg.com/vi/kF3kZuj1Qeo/hqdefault.jpg",
-      "genre": "pop",
-      "artist": "Paramore",
+      "avatarURL": "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
+      "genre": "Rock",
+      "artist": "Creedence",
       "playlist": [
         {
           "id": 0,
@@ -37,6 +37,12 @@
           "artist": "Blink-182",
           "albumCover": "https://th.bing.com/th/id/OIP.rK36Ny3Yl-fqm55izj-D7QHaHa?w=204&h=204&c=7&r=0&o=5&pid=1.7",
           "id": 4
+        },
+        {
+          "id": 5,
+          "title": "LENTITO",
+          "artist": "Alvaro Diaz",
+          "albumCover": "https://i.scdn.co/image/ab67616d0000b273690c2ff0213125fff10f3760"
         }
       ]
     },
