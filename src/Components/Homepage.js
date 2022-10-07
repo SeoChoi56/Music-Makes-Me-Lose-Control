@@ -50,9 +50,6 @@ function Homepage({userDetail, setProfile }){
                 <div>Favorite Artist: {userDetail.artist}</div>
                 <div>Favorite Genre: {userDetail.genre}</div>
             </span>
-            <span> 
-                || 
-            </span>
             <span>
                 This is User Playlist: {favoritesList} 
                 

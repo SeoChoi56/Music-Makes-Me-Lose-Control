@@ -33,3 +33,30 @@ nav {
   width: 300px;
   height: 300px;
 }
+
+#loginPage {
+  width: 100vw;
+  height: 100vh;
+  background-color: #6CC6EC;
+  border-style: dashed;
+}
+
+
+#loginForm {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border-style: dotted;
+  padding: 50px;
+  background-color: blueviolet;
+}
+
+.loginCred {
+  border-style: solid;
+}
+
+#loginID, #loginPass {
+}

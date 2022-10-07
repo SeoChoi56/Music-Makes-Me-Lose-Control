@@ -3,31 +3,20 @@ import { BrowserRouter as Router, useNavigate, Routes, Route, Link} from 'react-
 
 
 
-function Login({handleSubmit, logged}) {
-    const usernameTag = "Username: "
-    const passwordTag = "Password: "
+function Login({handleSubmit}) {
     let navigate = useNavigate();
 
-    //onSubmit form should redirect to home page
-    //Home page contains profile info:
-            //username:
-            //userAvatar:
-            //show users: Favorite Song List
-
-    
     return (
-        <div>
+        <div id="loginPage">
             <form id="loginForm" onSubmit={(event) => {
-                                                        {handleSubmit(event) ? navigate("/home") : navigate("/")}
-                                                      }}
-            >
-                <p> 
-                    {usernameTag}
-                    <input placeholder="Username" name="username" />
+                { handleSubmit(event) ? navigate("/home") : navigate("/") }
+            }}>
+                <h1>Music Makes Me Lose Control</h1>
+                <p id="loginID">
+                    <strong>Username: </strong><input className="loginCred" placeholder="Username" name="username" />
                 </p>
-                <p>
-                    {passwordTag}
-                    <input id="loginPass" placeholder="Password" name="password" />
+                <p id="loginPass">
+                <strong>Password: </strong><input className="loginCred" placeholder="Password" name="password" />
                 </p>
                 <button type="submit"> Log In </button>
             </form>
